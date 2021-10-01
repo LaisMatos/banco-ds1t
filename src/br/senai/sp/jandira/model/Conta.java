@@ -1,10 +1,15 @@
 package br.senai.sp.jandira.model;
 
+import br.senai.sp.jandira.lista.TipoConta;
+
 public class Conta {
 	
-	public String tipo;
+		
+	
+	//atributos 
+	private TipoConta tipo; // preciso importar (import) o tipoConta que é um Enum
 	private String numero;
-	public String numeroAgencia;
+	private String numeroAgencia;
 	public String titular;
 	private double saldo;
 	
@@ -13,7 +18,30 @@ public class Conta {
 		numero = numeroConta;
 	}
 	
-	public void depositar(double valorDeposito) {
+	// método setTipo para COLOCAR um valor em um atributo privado.
+	public void setTipo(TipoConta tipo){  
+		this.tipo=tipo;  
+		
+	}
+	
+	// método getTipo para PEGAR um valor em um atributo privado. 
+	public TipoConta getTipo(){
+		return tipo;
+	}
+	
+	// método set numeroAgencia
+	public void setTipoAgencia(String numeroAgencia){
+		this.numeroAgencia=numeroAgencia;
+		
+	}
+	
+	// método get numeroAgencia
+	public numeroAgencia getTipoAgencia() {
+		return numeroAgencia;
+	}
+	
+	
+	public void depositar(double valorDeposito) { 
 		
 		if (valorDeposito <= 0) {
 			System.out.println("Valor incorreto, não foi possível efetuar o depósito!");
