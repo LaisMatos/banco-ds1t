@@ -9,8 +9,8 @@ public class Conta {
 	//atributos 
 	private TipoConta tipo; // preciso importar (import) o tipoConta que é um Enum
 	private String numero;
-	private String numeroAgencia;
-	public String titular;
+	private Agencia agencia;
+	public Cliente cliente; //objeto da classe cleinte. Uma variavel que representa um objeto cliente
 	private double saldo;
 	
 	// Método construtor
@@ -29,17 +29,21 @@ public class Conta {
 		return tipo;
 	}
 	
-	// método set numeroAgencia
-	public void setTipoAgencia(String numeroAgencia){
-		this.numeroAgencia=numeroAgencia;
-		
+	public void setAgencia(Agencia agencia) {
+		this.agencia = agencia;
+	}
+	public Agencia getAgencia() {
+		return agencia;
 	}
 	
-	// método get numeroAgencia
-	public numeroAgencia getTipoAgencia() {
-		return numeroAgencia;
+	public void setCliente (Cliente cliente) {
+		this.cliente=cliente;
+				
 	}
 	
+	public Cliente getCliente() {
+	return cliente; 
+	}
 	
 	public void depositar(double valorDeposito) { 
 		
@@ -81,9 +85,10 @@ public class Conta {
 	public void exibirDetalhes() {
 		System.out.println();
 		System.out.println("---------------------");
-		System.out.printf("Titular: %s\n", titular);
+		System.out.printf("Titular: %s\n",cliente.getNome() );
 		System.out.printf("Número: %s\n", numero);
-		System.out.printf("Agência: %s\n", numeroAgencia);
+		System.out.printf("Agência: %s\n", agencia.getNumeroAgencia());
+		System.out.printf("Gerente: %s\n", agencia.getNomeGerente());
 		System.out.printf("Tipo: %s\n", tipo);
 		System.out.printf("Saldo: %s\n", saldo);
 	}
